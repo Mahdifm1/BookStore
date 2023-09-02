@@ -3,4 +3,5 @@ from django.views import View
 
 
 class MainPage(View):
-    pass
+    def get(self, request):
+        return render(request, "core/main_page.html")
