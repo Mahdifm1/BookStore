@@ -9,3 +9,8 @@ class Book(models.Model):
     sell_count = models.IntegerField()
     img = models.ImageField()
     summary = models.TextField()
+
+
+class Author(models.Model):
+    name = models.CharField()
+    age = models.IntegerField()
