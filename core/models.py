@@ -14,3 +14,7 @@ class Book(models.Model):
 class Author(models.Model):
     name = models.CharField()
     age = models.IntegerField()
+
+
+class Category(models.Model):
+    name = models.CharField()
