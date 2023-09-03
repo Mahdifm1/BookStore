@@ -1,0 +1,11 @@
+
+.main {
+    height: 80vh;
+    max-height: 80vh !important;
+    display: flex !important;
+    position: fixed !important;
+}
+
+.slider-height {
+    height: 80vh!important
+}
