@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles_m.css' %}">
-    <link rel="stylesheet" href="{% static 'core/css/main-page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/main-page.css' %}">
 {% endblock %}
 
 
@@ -48,8 +48,8 @@
     <section id="slider" class="pt-5" style="margin-bottom: 300px;">
         <div class="container">
             <h1 class="text-center" style="margin-bottom: 45px;"><b>Best Sellers</b></h1>
-            {% for item in top_sell %}
-                <div class="slider">
+            <div class="slider">
+                {% for item in top_sell %}
                     <div class="owl-carousel row">
                         <div class="slider-card">
                             <div class="product-card bg-white mb-4 overflow-hidden d-lg-flex flex-column rounded-lg position-relative">
@@ -58,18 +58,18 @@
                                         <li class="bg-danger">Top Seller</li>
                                     </ul>
                                 </div>
-                                <div class="product-image overflow-hidden"><img src="{{ top_sell.img }}" alt=""
+                                <div class="product-image overflow-hidden"><img src="{{ item.img.url }}" alt=""
                                                                                 class="product-thumbnail rounded-lg">
                                 </div>
                                 <div class="p-4 product-details">
                                     <h4 class="font-weight-bold d-flex justify-content-between"><a href="#!"
                                                                                                    class="text-dark text-truncate--2"
-                                                                                                   title="E{{ top_sell.img }}, circa ">
-                                        {{ top_sell.img }} </a> <a href="#!" class="ml-2 text-muted"><i
+                                                                                                   title="E{{ item.name }}, circa ">
+                                        {{ item.name }} </a> <a href="#!" class="ml-2 text-muted"><i
                                             class="fa fa-heart-o"></i></a></h4>
 
                                     <div class="d-flex align-items-baseline mb-2">
-                                        <h2 class="mr-2">{{ top_sell.price }}</h2>
+                                        <h6 class="mr-2">{{ item.price }}$</h6>
                                     </div>
                                     <button class="btn btn-outline-primary"><i class="fa fa-shopping-cart"
                                                                                aria-hidden="true"></i> Add to cart
@@ -78,11 +78,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </section>
-
 
     <script src="{% static 'core/js/script.js' %}"></script>
     <script src="{% static 'core/js/owl.carousel.min.js' %}"></script>
