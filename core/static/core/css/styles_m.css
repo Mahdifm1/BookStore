@@ -91,12 +91,14 @@ a {
     background: #fff;
     padding: 0px 0px;
     margin: 15px 10px 15px 5px;
-    border-radius: 5px;
+    border-radius: 15px;
     box-shadow: 0 15px 20px -15px rgb(0 0 0 / 73%);
     transform: scale(1);
     opacity: 1;
     transition: all 0.3s;
-    width: 31%;
+    display: flex;
+    justify-content: center;
+    width: 90%;
 }
 
 .section-100 {
@@ -109,6 +111,8 @@ a {
 
 .product-card {
     box-shadow: 0 12px 17px rgba(129, 140, 151, 0.1);
+    width: 80%;
+    border-radius: 15px;
 }
 
 .product-card .product-image {
