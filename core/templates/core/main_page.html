@@ -7,6 +7,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/owl.carousel.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/styles_m.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'core/css/main-page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'core/css/slider-style.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Open+Sans">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 
@@ -45,7 +50,7 @@
 
 
     <!-- to sellers slider-->
-    <section id="slider" class="pt-5" style="margin-bottom: 300px;">
+    <section id="slider" class="pt-5" style="margin-bottom: 100px;">
         <div class="container">
             <h1 class="text-center" style="margin-bottom: 45px;"><b>Best Sellers</b></h1>
             <div class="slider">
@@ -83,6 +88,14 @@
         </div>
     </section>
 
+
+
+    {% include 'core/product-slider.html' %}
+
+
+
     <script src="{% static 'core/js/script.js' %}"></script>
     <script src="{% static 'core/js/owl.carousel.min.js' %}"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 {% endblock %}
