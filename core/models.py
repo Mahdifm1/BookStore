@@ -25,6 +25,7 @@ class Book(models.Model):
     sell_count = models.IntegerField(default=0)
     img = models.ImageField(upload_to="images/Books/", null=True)
     summary = models.TextField()
+    added_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.name}"
