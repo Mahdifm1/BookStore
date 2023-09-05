@@ -1,6 +1,11 @@
 from django.shortcuts import render
-from django.views import View
-from .models import Book
+from django.views import View, generic
+from .models import Book, Category
+
+
+def get_categories():
+    print(Category.objects.all())
+    return Category.objects.all()
 
 
 class MainPage(View):
@@ -17,5 +22,15 @@ class MainPage(View):
                 pr = []
 
         context = {'top_sell': top_sellers,
-                   'latest_products': latest_products}
+                   'latest_products': latest_products,
+                   'categories': get_categories()}
         return render(request, "core/main_page.html", context)
+
+
+class BookDetail(generic.DetailView):
+    model = Book
+    template_name = 'core/product_detail.html'
+
+
+class ListCategories(generic.ListView):
+    model = Book
