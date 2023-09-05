@@ -17,6 +17,7 @@
                             <div class="item carousel-item {% if forloop.first %} active {% endif %}">
                                 <div class="row">
                                     {% for product in product_list %}
+                                        <a href="{% url 'book_detail' product.id %}">
                                         <div class="col-sm-3">
                                             <div class="latest-product-style thumb-wrapper">
                                                 <div style="margin: 20px; padding: 15px">
@@ -26,7 +27,7 @@
                                                     </div>
                                                     <div class="thumb-content">
                                                         <h4 class="font-weight-bold d-flex justify-content-between p-10">
-                                                            <a href="#!"
+                                                            <a href="{% url 'book_detail' product.id %}"
                                                                class="text-dark text-truncate--3"
                                                                title="E{{ item.name }}, circa ">{{ product.name }}</a>
                                                             <a href="#!" class="ml-2 text-muted"
@@ -41,7 +42,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div></a>
                                     {% endfor %}
                                 </div>
                             </div>
