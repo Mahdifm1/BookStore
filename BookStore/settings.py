@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+from django.shortcuts import redirect
+from django.urls import reverse
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -127,3 +130,7 @@ MEDIA_URL = '/media/'
 
 # default user
 AUTH_USER_MODEL = 'account.Profile'
+
+# login url
+LOGIN_URL = "account/login/"
+
