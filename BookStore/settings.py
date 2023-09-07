@@ -134,3 +134,6 @@ AUTH_USER_MODEL = 'account.Profile'
 # login url
 LOGIN_URL = "account/login/"
 
+# login and logout redirect url
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
