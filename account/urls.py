@@ -1,8 +1,8 @@
 from django.urls import path, include
 
-from account.views import signup
+from account.views import SignUp
 
 urlpatterns = [
     path("", include("django.contrib.auth.urls")),
-    path("signup/", signup, name='signup'),
+    path("signup/", SignUp.as_view(), name='signup'),
 ]
