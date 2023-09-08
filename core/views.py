@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View, generic
-from .models import Book, Category
+from .models import Book, Category, Author
 
 
 def get_categories():
@@ -35,8 +35,17 @@ class BookDetail(generic.DetailView):
 class ListCategories(generic.ListView):
     model = Book
     template_name = 'core/product_list.html'
-    paginate_by = 20
+    paginate_by = 15
     extra_context = {'categories': get_categories()}
 
     def get_queryset(self):
         return Book.objects.filter(category__name__exact=self.kwargs.get('name'))
+
+
+class AuthorsListView(generic.ListView):
+    model = Author
+    template_name = 'core/author_list.html'
+    paginate_by = 15
+    authors = Author.objects.all()
+    extra_context = {'categories': get_categories(),
+                     'authors': authors}
