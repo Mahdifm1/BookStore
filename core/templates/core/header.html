@@ -13,7 +13,7 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="{% static 'core/img/account_icon.png' %}" class="icon-size"/>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                         {% if user.is_authenticated %}
                             <li><a class="dropdown-item" href="#">dashboard</a></li>
                             <li><a class="dropdown-item" href="#">cart</a></li>
@@ -47,11 +47,11 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Authors</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page"
+                                                href="{% url 'list_authors' %}">Authors</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://github.com/Mahdifm1">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="https://github.com/Mahdifm1">Contact</a></li>
                     </ul>
-
                 </div>
             </div>
         </nav>
