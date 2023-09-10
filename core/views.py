@@ -54,3 +54,8 @@ class AuthorsListView(generic.ListView):
 class About(View):
     def get(self, request):
         return render(request, 'core/about.html')
+
+
+class ContactUs(View):
+    def get(self, request):
+        return render(request, 'core/contact_us.html')
