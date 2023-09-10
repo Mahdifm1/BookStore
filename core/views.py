@@ -49,3 +49,8 @@ class AuthorsListView(generic.ListView):
     authors = Author.objects.all()
     extra_context = {'categories': get_categories(),
                      'authors': authors}
+
+
+class About(View):
+    def get(self, request):
+        return render(request, 'core/about.html')
