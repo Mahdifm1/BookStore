@@ -13,7 +13,7 @@
                     <ul>
                         <li><a href="#">My Account</a></li>
                         <li><a href="#">Our location</a></li>
-                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,9 +41,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item"><a class="nav-link" href="{% comment %}{% url 'main_page' %}{% endcomment %}">Home</a>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'main_page' %}">Home</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{% comment %}{% url 'about_page' %}{% endcomment %}">About
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About
                         Us</a></li>
                     <li class="dropdown megamenu-fw">
                         <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Product</a>
@@ -112,10 +112,8 @@
                             <li><a href="{% comment %}{% url 'shop_detail_page' %}{% endcomment %}">Shop Detail</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{% comment %}{% url 'service' %}{% endcomment %}">Our
-                        Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% comment %}{% url 'contact_us' %}{% endcomment %}">Contact
-                        Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">Contact Us</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
