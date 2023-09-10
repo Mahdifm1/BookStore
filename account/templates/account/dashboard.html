@@ -1,0 +1,117 @@
+{% extends 'account/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block header %}
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+{% endblock %}
+
+{% block body %}
+    <div class="container bootstrap snippets bootdey">
+        <div class="panel-body inf-content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip"
+                         src="https://bootdey.com/img/Content/avatar/avatar7.png" data-original-title="Usuario">
+                    <ul title="Ratings" class="list-inline ratings text-center">
+                        <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <strong>Information</strong><br>
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user text-primary"></span>
+                                        Username
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.username }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-envelope text-primary"></span>
+                                        Email
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.email }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-asterisk text-primary"></span>
+                                        Name
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.name }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-phone  text-primary"></span>
+                                        Phone number
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.phone_number }}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-bookmark text-primary"></span>
+                                        Address
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.address }}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon text-primary">$</span>
+                                        Wallet
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.wallet }}
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-calendar text-primary"></span>
+                                        Date joined
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ user.date_joined }}
+                                </td>
+                            </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

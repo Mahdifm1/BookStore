@@ -15,7 +15,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
                         {% if user.is_authenticated %}
-                            <li><a class="dropdown-item" href="#">dashboard</a></li>
+                            <li><a class="dropdown-item" href="{% url 'dashboard' %}">dashboard</a></li>
                             <li><a class="dropdown-item" href="#">cart</a></li>
                             <li>
                                 <hr class="dropdown-divider">
