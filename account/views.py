@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
 
+from account.models import Profile
 from .forms import CustomUserCreationForm
 
 
@@ -25,3 +26,12 @@ class SignUp(View):
     def get(self, request):
         form = CustomUserCreationForm(request.POST)
         return render(request, 'registration/signup.html', {'form': form})
+
+
+class Dashboard(View):
+    def get(self, request):
+        user = Profile.objects.get(username=request.user.username)
+        return render(request, 'account/dashboard.html', {'user': user})
+
+    def post(self, request):
+        pass
