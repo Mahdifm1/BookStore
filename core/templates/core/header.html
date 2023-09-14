@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="right-phone-box">
-                    <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    <p>Call US :- <a href="#"> {{ phone_number }}</a></p> {% comment %}+11 900 800 100{% endcomment %}
                 </div>
                 <div class="our-link">
                     <ul>
@@ -51,52 +51,18 @@
                         <ul class="dropdown-menu megamenu-content" role="menu">
                             <li>
                                 <div class="row">
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Top</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="shop.html">Jackets</a></li>
-                                                <li><a href="shop.html">Shirts</a></li>
-                                                <li><a href="shop.html">Sweaters & Cardigans</a></li>
-                                                <li><a href="shop.html">T-shirts</a></li>
-                                            </ul>
+                                    {% for top_category in top_categories %}
+                                        <div class="col-menu col-md-3">
+                                            <h6 class="title">{{ top_category.top_category_name }}</h6>
+                                            <div class="content">
+                                                <ul class="menu-col">
+                                                    {% for category in top_category.categories %}
+                                                        <li><a href="/category/{{ category.url }}">{{ category.name }}</a></li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- end col-3 -->
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Bottom</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="shop.html">Swimwear</a></li>
-                                                <li><a href="shop.html">Skirts</a></li>
-                                                <li><a href="shop.html">Jeans</a></li>
-                                                <li><a href="shop.html">Trousers</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <!-- end col-3 -->
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Clothing</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="shop.html">Top Wear</a></li>
-                                                <li><a href="shop.html">Party wear</a></li>
-                                                <li><a href="shop.html">Bottom Wear</a></li>
-                                                <li><a href="shop.html">Indian Wear</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-menu col-md-3">
-                                        <h6 class="title">Accessories</h6>
-                                        <div class="content">
-                                            <ul class="menu-col">
-                                                <li><a href="shop.html">Bags</a></li>
-                                                <li><a href="shop.html">Sunglasses</a></li>
-                                                <li><a href="shop.html">Fragrances</a></li>
-                                                <li><a href="shop.html">Wallets</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    {% endfor %}
                                     <!-- end col-3 -->
                                 </div>
                                 <!-- end row -->
