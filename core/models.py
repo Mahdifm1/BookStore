@@ -12,6 +12,7 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=30, null=False)
+    top_category = models.CharField(max_length=30, null=False, default="category")
 
     def __str__(self):
         return f"{self.name}"
