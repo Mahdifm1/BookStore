@@ -3,16 +3,18 @@ from django.views import View, generic
 from .models import Book, Category, Author
 
 
+# get category item for given queryset
 def get_categories_list(categories):
     context = []
     for category in categories:
         context.append({
             'name': category.name,
-            'url': '_'.join(category.name.split())
+            'url': '_'.join(category.name.split())  # replace space with '_' in name
         })
     return context
 
 
+# get categories names and titles from db
 def get_categories():
     categories = Category.objects.all()
     top_categories = categories.values('top_category')
