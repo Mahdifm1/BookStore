@@ -3,8 +3,31 @@ from django.views import View, generic
 from .models import Book, Category, Author
 
 
+def get_categories_list(categories):
+    context = []
+    for category in categories:
+        context.append({
+            'name': category.name,
+            'url': '_'.join(category.name.split())
+        })
+    return context
+
+
 def get_categories():
-    return Category.objects.all()
+    categories = Category.objects.all()
+    top_categories = categories.values('top_category')
+    top_categories = list(set([(list(key.values()))[0] for key in top_categories]))
+    sorted(top_categories)
+
+    context = []
+    for top in top_categories:
+        context.append({
+            'top_category_name': top,
+            'categories': get_categories_list(list(categories.filter(top_category__exact=top)))
+        })
+
+    context = sorted(context, key=lambda x: x['top_category_name'])
+    return context
 
 
 class MainPage(View):
@@ -22,7 +45,7 @@ class MainPage(View):
 
         context = {'top_sell': top_sellers,
                    'latest_products': latest_products,
-                   'categories': get_categories()}
+                   'top_categories': get_categories()}
         return render(request, "core/main_page.html", context)
 
 
