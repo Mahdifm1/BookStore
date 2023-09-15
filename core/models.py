@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Author(models.Model):
@@ -13,6 +14,11 @@ class Author(models.Model):
 class Category(models.Model):
     name = models.CharField(max_length=30, null=False)
     top_category = models.CharField(max_length=30, null=False, default="category")
+    slug = models.SlugField(default="", null=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name}"
