@@ -9,7 +9,7 @@ def get_categories_list(categories):
     for category in categories:
         context.append({
             'name': category.name,
-            'url': '_'.join(category.name.split())  # replace space with '_' in name
+            'url': category.slug
         })
     return context
 
@@ -58,7 +58,7 @@ class ListCategories(generic.ListView):
     extra_context = {'top_categories': get_categories()}
 
     def get_queryset(self):
-        return Book.objects.filter(category__name__exact=(' '.join(self.kwargs.get('category').split('_'))))
+        return Book.objects.filter(category__slug__exact=self.kwargs.get('category'))
 
 
 class AuthorsListView(generic.ListView):
