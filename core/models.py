@@ -33,6 +33,11 @@ class Book(models.Model):
     img = models.ImageField(upload_to="images/Books/", null=True)
     summary = models.TextField()
     added_date = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(default="", null=False)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return f"{self.name}"
