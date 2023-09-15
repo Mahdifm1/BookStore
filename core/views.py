@@ -47,7 +47,7 @@ class MainPage(View):
 
 class BookDetail(generic.DetailView):
     model = Book
-    extra_context = {'categories': get_categories()}
+    extra_context = {'top_categories': get_categories()}
     template_name = 'core/product_detail.html'
 
 
@@ -55,10 +55,10 @@ class ListCategories(generic.ListView):
     model = Book
     template_name = 'core/product_list.html'
     paginate_by = 15
-    extra_context = {'categories': get_categories()}
+    extra_context = {'top_categories': get_categories()}
 
     def get_queryset(self):
-        return Book.objects.filter(category__name__exact=self.kwargs.get('name'))
+        return Book.objects.filter(category__name__exact=(' '.join(self.kwargs.get('category').split('_'))))
 
 
 class AuthorsListView(generic.ListView):
@@ -66,7 +66,7 @@ class AuthorsListView(generic.ListView):
     template_name = 'core/author_list.html'
     paginate_by = 15
     authors = Author.objects.all()
-    extra_context = {'categories': get_categories(),
+    extra_context = {'top_categories': get_categories(),
                      'authors': authors}
 
 
