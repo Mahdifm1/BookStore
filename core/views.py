@@ -72,9 +72,11 @@ class AuthorsListView(generic.ListView):
 
 class About(View):
     def get(self, request):
-        return render(request, 'core/about.html')
+        context = {'top_categories': get_categories()}
+        return render(request, 'core/about.html', context)
 
 
 class ContactUs(View):
     def get(self, request):
-        return render(request, 'core/contact_us.html')
+        context = {'top_categories': get_categories()}
+        return render(request, 'core/contact_us.html', context)
