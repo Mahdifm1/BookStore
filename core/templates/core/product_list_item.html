@@ -8,7 +8,7 @@
             <img src="{{ book.img.url }}" class="img-fluid" alt="Image">
             <div class="mask-icon">
                 <ul>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                    <li><a href="{% url 'book_detail' book.slug %}" data-toggle="tooltip" data-placement="right"
                            title="View"><i class="fas fa-eye"></i></a></li>
                     <li><a href="#" data-toggle="tooltip" data-placement="right"
                            title="Compare"><i class="fas fa-sync-alt"></i></a>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="why-text">
-            <h4>{{ book.name }}</h4>
+            <h4><a href="{% url 'book_detail' book.slug %}">{{ book.name }}</a></h4>
             <h5> ${{ book.price }}</h5>
         </div>
     </div>
