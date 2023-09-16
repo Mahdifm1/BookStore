@@ -22,44 +22,16 @@
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
     <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <!-- Site CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    {% include 'core/style_include.html' %}
 
 </head>
 
 <body>
 {% render_partial 'core.views.header_component'%}
 {% block body %} {% endblock %}
-{#{% include "core/footer.html" %}#}
 {% render_partial 'core.views.footer_component' %}
 
-<!-- ALL JS FILES -->
-<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'js/popper.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<!-- ALL PLUGINS -->
-<script src="{% static 'js/jquery.superslides.min.js' %}"></script>
-<script src="{% static 'js/bootstrap-select.js' %}"></script>
-<script src="{% static 'js/inewsticker.js' %}"></script>
-<script src="{% static 'js/bootsnav.js' %}"></script>
-<script src="{% static 'js/images-loded.min.js' %}"></script>
-<script src="{% static 'js/isotope.min.js' %}"></script>
-<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/baguetteBox.min.js' %}"></script>
-<script src="{% static 'js/form-validator.min.js' %}"></script>
-<script src="{% static 'js/contact-form-script.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
+{% include 'core/js_include.html' %}
 {% block scripts %}{% endblock %}
 </body>
 </html>
