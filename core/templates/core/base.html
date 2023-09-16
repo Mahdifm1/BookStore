@@ -1,4 +1,5 @@
 {% load static %}
+{% load render_partial %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,9 +39,10 @@
 </head>
 
 <body>
-{% include "core/header.html" %}
+{% render_partial 'core.views.header_component'%}
 {% block body %} {% endblock %}
-{% include "core/footer.html" %}
+{#{% include "core/footer.html" %}#}
+{% render_partial 'core.views.footer_component' %}
 
 <!-- ALL JS FILES -->
 <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
