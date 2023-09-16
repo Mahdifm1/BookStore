@@ -32,6 +32,15 @@ def get_categories():
     return context
 
 
+def header_component(request):
+    context = {'top_categories': get_categories()}
+    return render(request, 'core/header.html', context)
+
+
+def footer_component(request):
+    return render(request, 'core/footer.html', {})
+
+
 class MainPage(View):
     def get(self, request):
         books = Book.objects.all()
@@ -40,14 +49,12 @@ class MainPage(View):
 
         context = {'top_sell': top_sellers,
                    'top_featured': top_sellers,
-                   'latest_products': latest_products,
-                   'top_categories': get_categories()}
+                   'latest_products': latest_products}
         return render(request, "core/main_page.html", context)
 
 
 class BookDetail(generic.DetailView):
     model = Book
-    extra_context = {'top_categories': get_categories()}
     template_name = 'core/product_detail.html'
 
 
@@ -55,7 +62,6 @@ class ListCategories(generic.ListView):
     model = Book
     template_name = 'core/product_list.html'
     paginate_by = 15
-    extra_context = {'top_categories': get_categories()}
 
     def get_queryset(self):
         return Book.objects.filter(category__slug__exact=self.kwargs.get('category'))
@@ -66,17 +72,14 @@ class AuthorsListView(generic.ListView):
     template_name = 'core/author_list.html'
     paginate_by = 15
     authors = Author.objects.all()
-    extra_context = {'top_categories': get_categories(),
-                     'authors': authors}
+    extra_context = {'authors': authors}
 
 
 class About(View):
     def get(self, request):
-        context = {'top_categories': get_categories()}
-        return render(request, 'core/about.html', context)
+        return render(request, 'core/about.html')
 
 
 class ContactUs(View):
     def get(self, request):
-        context = {'top_categories': get_categories()}
-        return render(request, 'core/contact_us.html', context)
+        return render(request, 'core/contact_us.html')
