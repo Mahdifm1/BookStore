@@ -72,8 +72,10 @@
                                 <img src="{{ book.img.url }}" class="img-fluid" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
+                                        <li>
+                                            <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}"
+                                               data-toggle="tooltip" data-placement="right" title="View"><i
+                                                    class="fas fa-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
                                                 class="fas fa-sync-alt"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right"
@@ -83,7 +85,9 @@
                                 </div>
                             </div>
                             <div class="why-text">
-                                <h4>{{ book.name }}</h4>
+                                <h4>
+                                    <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}">{{ book.name }}</a>
+                                </h4>
                                 <h5> {{ book.price }}</h5>
                             </div>
                         </div>
@@ -100,8 +104,10 @@
                                 <img src="{{ book.img.url }}" class="img-fluid" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
+                                        <li>
+                                            <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}"
+                                               data-toggle="tooltip" data-placement="right" title="View"><i
+                                                    class="fas fa-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
                                                 class="fas fa-sync-alt"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right"
@@ -111,7 +117,9 @@
                                 </div>
                             </div>
                             <div class="why-text">
-                                <h4>{{ book.name }}</h4>
+                                <h4>
+                                    <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}">{{ book.name }}</a>
+                                </h4>
                                 <h5> {{ book.price }}</h5>
                             </div>
                         </div>
@@ -128,8 +136,10 @@
                                 <img src="{{ book.img.url }}" class="img-fluid" alt="Image">
                                 <div class="mask-icon">
                                     <ul>
-                                        <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                class="fas fa-eye"></i></a></li>
+                                        <li>
+                                            <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}"
+                                               data-toggle="tooltip" data-placement="right" title="View"><i
+                                                    class="fas fa-eye"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i
                                                 class="fas fa-sync-alt"></i></a></li>
                                         <li><a href="#" data-toggle="tooltip" data-placement="right"
@@ -139,7 +149,9 @@
                                 </div>
                             </div>
                             <div class="why-text">
-                                <h4>{{ book.name }}</h4>
+                                <h4>
+                                    <a href="{% url 'book_detail' category=book.category.top_category sub_category=book.category.slug slug=book.slug %}">{{ book.name }}</a>
+                                </h4>
                                 <h5> {{ book.price }}</h5>
                             </div>
                         </div>

@@ -53,7 +53,7 @@
                                 <div class="row">
                                     {% for top_category in top_categories %}
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title"><a href="{% url 'list_categories' top_category.top_category_name %}">{{ top_category.top_category_name }}</a></h6>
+                                            <h6 class="title"><a href="{% url 'list_categories' category=top_category.top_category_name %}">{{ top_category.top_category_name }}</a></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     {% for category in top_category.categories %}
