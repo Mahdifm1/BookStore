@@ -64,7 +64,11 @@ class ListCategories(generic.ListView):
     paginate_by = 15
 
     def get_queryset(self):
-        return Book.objects.filter(category__slug__exact=self.kwargs.get('category'))
+        if self.kwargs.get('sub_category'):
+            return Book.objects.filter(category__slug__exact=self.kwargs.get('sub_category'),
+                                       category__top_category__exact=self.kwargs.get('category'))
+        else:
+            return Book.objects.filter(category__top_category__exact=self.kwargs.get('category'))
 
 
 class AuthorsListView(generic.ListView):
