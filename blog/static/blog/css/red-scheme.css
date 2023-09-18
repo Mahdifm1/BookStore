@@ -160,7 +160,7 @@ a, a:visited {
 
 .service-section, .first-widget {
   position: relative;
-  margin-top: 108px;
+  margin-top: 10px!important;
 }
 
 .light-content, #blogPosts {
