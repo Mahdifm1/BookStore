@@ -12,32 +12,24 @@
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/t-shirts-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">T-shirts</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/shirt-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">Shirt</a>
+                        <img class="img-fluid" src="{% static 'images/Comics-img.webp' %}" alt="Comic book"/>
+                        <a class="btn hvr-hover" href="{% url 'list_categories' 'comic' %}">Comics</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/wallet-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">Wallet</a>
+                        <img class="img-fluid" src="{% static 'images/Poetry-img.webp' %}" alt="Poetry book"/>
+                        <a class="btn hvr-hover" href="{% url 'list_categories' 'poetry' %}">Poetry</a>
                     </div>
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/women-bag-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">Bags</a>
+                        <img class="img-fluid" src="{% static 'images/Novel-img.webp' %}" alt="Novel book"/>
+                        <a class="btn hvr-hover" href="{% url 'list_categories' 'novel' %}">Novel</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/shoes-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">Shoes</a>
-                    </div>
-                    <div class="shop-cat-box">
-                        <img class="img-fluid" src="{% static 'images/women-shoes-img.jpg' %}" alt=""/>
-                        <a class="btn hvr-hover" href="#">Women Shoes</a>
+                        <img class="img-fluid" src="{% static 'images/History-img.webp' %}" alt="History book"/>
+                        <a class="btn hvr-hover" href="{% url 'list_categories' 'history' %}">History</a>
                     </div>
                 </div>
             </div>
@@ -126,7 +118,7 @@
                     </div>
                 {% endfor %}
 
-            {% for book in top_featured %}
+                {% for book in top_featured %}
                     <div class="col-lg-3 col-md-6 special-grid top-featured">
                         <div class="products-single fix">
                             <div class="box-img-hover">

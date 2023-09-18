@@ -53,11 +53,11 @@
                                 <div class="row">
                                     {% for top_category in top_categories %}
                                         <div class="col-menu col-md-3">
-                                            <h6 class="title">{{ top_category.top_category_name }}</h6>
+                                            <h6 class="title"><a href="{% url 'list_categories' top_category.top_category_name %}">{{ top_category.top_category_name }}</a></h6>
                                             <div class="content">
                                                 <ul class="menu-col">
                                                     {% for category in top_category.categories %}
-                                                        <li><a href="/{{ category.url }}">{{ category.name }}</a></li>
+                                                        <li><a href="{% url 'list_categories' top_category.top_category_name category.url %}">{{ category.name }}</a></li>
                                                     {% endfor %}
                                                 </ul>
                                             </div>
