@@ -1,9 +1,6 @@
 from django.db import models
 from core.models import Category
-
-
-class Comment(models.Model):
-    pass
+from account.models import Profile
 
 
 class Tag(models.Model):
@@ -15,5 +12,12 @@ class Blog(models.Model):
     short_description = models.CharField(max_length=100)
     img = models.ImageField(upload_to='images/Blog/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    tags = models.ManyToManyField(Tag, models.CASCADE)
-    created_date = models.DateField(auto_now_add=True)
+    tags = models.ManyToManyField(Tag)
+    added_date = models.DateField(auto_now_add=True)
+
+
+class Comment(models.Model):
+    blog = models.OneToOneField(Blog, on_delete=models.CASCADE)
+    user = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    added_date = models.DateField(auto_now_add=True)
+    description = models.TextField(max_length=150)
