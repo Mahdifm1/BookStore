@@ -14,7 +14,7 @@ class Blog(models.Model):
     img = models.ImageField(upload_to='images/Blog/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
-    added_date = models.DateField(auto_now_add=True)
+    added_date = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(default="", null=True)
 
 
