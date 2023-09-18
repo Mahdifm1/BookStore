@@ -9,13 +9,12 @@ class BlogList(ListView):
     paginate_by = 5
 
     # context
-    posts = Blog.objects.all().order_by('added_date')
-    recent_posts = posts[:3]
-    categories = Category.objects.all()
-    tags = Tag.objects.all()
-    extra_context = {
-        'posts': posts,
-        'recent_posts': recent_posts,
-        'categories': categories,
-        'tags': tags
-    }
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        posts = Blog.objects.all().order_by('added_date')
+        context["posts"] = posts
+        context["recent_posts"] = posts[:3]
+        context["categories"] = Category.objects.all()
+        context["tags"] = Tag.objects.all()
+        print(context)
+        return context
