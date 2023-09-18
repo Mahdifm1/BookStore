@@ -7,7 +7,7 @@ class Comment(models.Model):
 
 
 class Tag(models.Model):
-    pass
+    title = models.CharField(max_length=30)
 
 
 class Blog(models.Model):
