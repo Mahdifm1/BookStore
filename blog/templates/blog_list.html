@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -17,15 +19,15 @@
 	<link href="http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet">
 
 	<!-- Stylesheets -->
-	<link rel="stylesheet" href="bootstrap/bootstrap.css">
-	<link rel="stylesheet" href="css/misc.css">
-	<link rel="stylesheet" href="css/red-scheme.css">
+	<link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.css' %}">
+	<link rel="stylesheet" href="{% static 'blog/css/misc.css' %}">
+	<link rel="stylesheet" href="{% static 'blog/css/red-scheme.css' %}">
 	
 	<!-- JavaScripts -->
-	<script src="js/jquery-1.10.2.min.js"></script>
-	<script src="js/jquery-migrate-1.2.1.min.js"></script>
+	<script src="{% static 'blog/js/jquery-1.10.2.min.js' %}"></script>
+	<script src="{% static 'blog/js/jquery-migrate-1.2.1.min.js' %}"></script>
 
-	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="{% static 'blog/images/favicon.ico' %}" type="image/x-icon" />
 
 </head>
 <body>
@@ -62,7 +64,7 @@
 
 					<div class="pull-left logo">
 						<a href="index.html">
-							<img src="images/logo.png" alt="Medigo">
+							<img src="{% static 'blog/images/logo.png' %}" alt="Medigo">
 						</a>
 					</div>	<!-- /.logo -->
 
@@ -130,7 +132,7 @@
 						<div class="post-blog">
 							<div class="blog-image">
 								<a href="blog-single.html">
-									<img src="images/includes/blog1.jpg" alt="">
+									<img src="{% static 'blog/images/includes/blog1.jpg' %}" alt="">
 								</a>
 							</div> <!-- /.blog-image -->
 							<div class="blog-content">
@@ -145,7 +147,7 @@
 						<div class="post-blog">
 							<div class="blog-image">
 								<a href="blog-single.html">
-									<img src="images/includes/blog2.jpg" alt="">
+									<img src="{% static 'blog/images/includes/blog2.jpg' %}" alt="">
 								</a>
 							</div> <!-- /.blog-image -->
 							<div class="blog-content">
@@ -160,7 +162,7 @@
 						<div class="post-blog">
 							<div class="blog-image">
 								<a href="blog-single.html">
-									<img src="images/includes/blog3.jpg" alt="">
+									<img src="{% static 'blog/images/includes/blog3.jpg' %}" alt="">
 								</a>
 							</div> <!-- /.blog-image -->
 							<div class="blog-content">
@@ -175,7 +177,7 @@
 						<div class="post-blog">
 							<div class="blog-image">
 								<a href="blog-single.html">
-									<img src="images/includes/blog4.jpg" alt="">
+									<img src="{% static 'blog/images/includes/blog4.jpg' %}" alt="">
 								</a>
 							</div> <!-- /.blog-image -->
 							<div class="blog-content">
@@ -206,7 +208,7 @@
 						<h5 class="widget-title">Recent Posts</h5>
 						<div class="last-post clearfix">
 							<div class="thumb pull-left">
-								<a href="#"><img src="images/includes/blogthumb1.jpg" alt=""></a>
+								<a href="#"><img src="{% static 'blog/images/includes/blogthumb1.jpg' %}" alt=""></a>
 							</div>
 							<div class="content">
 								<span>24 February 2084</span>
@@ -215,7 +217,7 @@
 						</div> <!-- /.last-post -->
 						<div class="last-post clearfix">
 							<div class="thumb pull-left">
-								<a href="#"><img src="images/includes/blogthumb2.jpg" alt=""></a>
+								<a href="#"><img src="{% static 'blog/images/includes/blogthumb2.jpg' %}" alt=""></a>
 							</div>
 							<div class="content">
 								<span>24 February 2084</span>
@@ -224,7 +226,7 @@
 						</div> <!-- /.last-post -->
 						<div class="last-post clearfix">
 							<div class="thumb pull-left">
-								<a href="#"><img src="images/includes/blogthumb3.jpg" alt=""></a>
+								<a href="#"><img src="{% static 'blog/images/includes/blogthumb3.jpg' %}" alt=""></a>
 							</div>
 							<div class="content">
 								<span>24 February 2084</span>
@@ -291,8 +293,8 @@
 	</footer> <!-- /.site-footer -->
 
 	<!-- Scripts -->
-	<script src="js/min/plugins.min.js"></script>
-	<script src="js/min/medigo-custom.min.js"></script>
+	<script src="{% static 'blog/js/min/plugins.min.js' %}"></script>
+	<script src="{% static 'blog/js/min/medigo-custom.min.js' %}"></script>
 
 
 </body>
