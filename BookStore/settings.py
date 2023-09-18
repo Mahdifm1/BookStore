@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'core',
     'account',
     'django_render_partial',
+    'blog',
 ]
 
 MIDDLEWARE = [
