@@ -14,7 +14,8 @@ class BlogList(ListView):
         posts = Blog.objects.all().order_by('added_date')
         context["posts"] = posts
         context["recent_posts"] = posts[:3]
-        context["categories"] = Category.objects.all()
+        categories = Category.objects.all()
+        context["left_categories"] = categories[:int(len(categories)/2)]
+        context["right_categories"] = categories[int(len(categories)/2):]
         context["tags"] = Tag.objects.all()
-        print(context)
         return context
