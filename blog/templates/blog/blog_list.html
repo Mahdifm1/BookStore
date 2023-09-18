@@ -35,7 +35,7 @@
                                 </div> <!-- /.blog-image -->
                                 <div class="blog-content">
                                     <span class="meta-date"><a href="#">{{ post.added_date }}</a></span>
-{#                                    <span class="meta-comments"><a href="#">14 Comments</a></span>#}
+                                    {#                                    <span class="meta-comments"><a href="#">14 Comments</a></span>#}
                                     <h3><a href="{{ post.slug }}">{{ post.title|title }}</a></h3>
                                     <p class="light-text">{{ post.short_description }}</p>
                                 </div> <!-- /.blog-content -->
@@ -44,13 +44,13 @@
 
                     </div> <!-- /.col-md-12 -->
                     <div class="col-md-12">
-                        <ul class="pages">
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">13</a></li>
-                        </ul>
+                        {#                        <ul class="pages">#}
+                        {#                            <li><a href="#" class="active">1</a></li>#}
+                        {#                            <li><a href="#">2</a></li>#}
+                        {#                            <li><a href="#">3</a></li>#}
+                        {#                            <li><a href="#">...</a></li>#}
+                        {#                            <li><a href="#">13</a></li>#}
+                        {#                        </ul>#}
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->
             </div> <!-- /.col-md-8 -->
@@ -59,33 +59,20 @@
                 <div class="sidebar">
                     <div class="sidebar-widget">
                         <h5 class="widget-title">Recent Posts</h5>
-                        <div class="last-post clearfix">
-                            <div class="thumb pull-left">
-                                <a href="#"><img src="{% static 'blog/images/includes/blogthumb1.jpg' %}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <span>24 February 2084</span>
-                                <h4><a href="#">Standard Post Formating Medigo</a></h4>
-                            </div>
-                        </div> <!-- /.last-post -->
-                        <div class="last-post clearfix">
-                            <div class="thumb pull-left">
-                                <a href="#"><img src="{% static 'blog/images/includes/blogthumb2.jpg' %}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <span>24 February 2084</span>
-                                <h4><a href="#">Standard Post Formating Medigo</a></h4>
-                            </div>
-                        </div> <!-- /.last-post -->
-                        <div class="last-post clearfix">
-                            <div class="thumb pull-left">
-                                <a href="#"><img src="{% static 'blog/images/includes/blogthumb3.jpg' %}" alt=""></a>
-                            </div>
-                            <div class="content">
-                                <span>24 February 2084</span>
-                                <h4><a href="#">Standard Post Formating Medigo</a></h4>
-                            </div>
-                        </div> <!-- /.last-post -->
+                        {% for recent_post in recent_posts %}
+                            <div class="last-post clearfix">
+                                <div class="thumb pull-left">
+                                    <a href="{{ recent_post.slug }}"><img class="recent-post-image" src="{{ recent_post.img.url }}"
+                                                                          alt="{{ recent_post.title }}"></a>
+                                </div>
+                                <div class="content">
+                                    <span>{{ recent_post.added_date }}</span>
+                                    <h4><a href="{{ recent_post.slug }}">{{ recent_post.title }}</a></h4>
+                                </div>
+                            </div> <!-- /.last-post -->
+                        {% endfor %}
+
+
                     </div> <!-- /.sidebar-widget -->
                     <div class="sidebar-widget">
                         <h5 class="widget-title">Categories</h5>
