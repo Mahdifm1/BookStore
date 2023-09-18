@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Blog, Category
+from .models import Blog, Category, Tag
 
 
 class BlogList(ListView):
@@ -12,8 +12,10 @@ class BlogList(ListView):
     posts = Blog.objects.all().order_by('added_date')
     recent_posts = posts[:3]
     categories = Category.objects.all()
+    tags = Tag.objects.all()
     extra_context = {
         'posts': posts,
         'recent_posts': recent_posts,
-        'categories': categories
+        'categories': categories,
+        'tags': tags
     }
