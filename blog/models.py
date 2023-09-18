@@ -10,6 +10,7 @@ class Tag(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=50)
     short_description = models.CharField(max_length=100)
+    description = models.TextField()
     img = models.ImageField(upload_to='images/Blog/')
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
