@@ -15,6 +15,7 @@ class Blog(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag)
     added_date = models.DateField(auto_now_add=True)
+    slug = models.SlugField(default="", null=True)
 
 
 class Comment(models.Model):
