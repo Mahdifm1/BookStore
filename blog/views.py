@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models import Blog, Category, Comment
+from .foms import CommentForm
 
 
 def sidebar(request):
@@ -36,4 +37,6 @@ class Post(DetailView):
         comments = Comment.objects.filter(blog__exact=self.object)
         context["count_comments"] = len(comments)
         context["comments"] = comments
+        form = CommentForm(kwargs)
+        context['form'] = form
         return context
