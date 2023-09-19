@@ -71,49 +71,6 @@
                                 {% endfor %}
 
 
-{#                                <div class="media">#}
-{#                                    <div class="pull-left">#}
-{#                                        <img class="media-object" src="{% static 'blog/images/includes/comment.jpg' %}"#}
-{#                                             alt="comment">#}
-{#                                    </div>#}
-{#                                    <div class="media-body">#}
-{#                                        <div class="media-heading">#}
-{#                                            <h4>{{ comment.title }}</h4>#}
-{#                                            <a href="#"><span>4 weeks ago</span><span>Reply</span></a>#}
-{#                                        </div>#}
-{#                                        <p>Lorem ipsum dolor sit amet lorem, elit. Sequi, nam magni repellendus! <span#}
-{#                                                class="label label-primary">New</span></p>#}
-{#                                        <div class="media">#}
-{#                                            <div class="pull-left">#}
-{#                                                <img class="media-object"#}
-{#                                                     src="{% static 'blog/images/includes/comment2.jpg' %}" alt="">#}
-{#                                            </div>#}
-{#                                            <div class="media-body">#}
-{#                                                <div class="media-heading">#}
-{#                                                    <h4>Stephen</h4>#}
-{#                                                    <a href="#"><span>5 weeks ago</span><span>Reply</span></a>#}
-{#                                                </div>#}
-{#                                                <p>Temporibus, ea, praesentium eaque totam vel quos laboriosam quia sit#}
-{#                                                    dolore at consequatur beatae aliquam debitis porro quasi cupiditate#}
-{#                                                    quod!</p>#}
-{#                                            </div>#}
-{#                                        </div>#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                                <div class="media">#}
-{#                                    <div class="pull-left">#}
-{#                                        <img class="media-object" src="{% static 'blog/images/includes/comment3.jpg' %}"#}
-{#                                             alt="">#}
-{#                                    </div>#}
-{#                                    <div class="media-body">#}
-{#                                        <div class="media-heading">#}
-{#                                            <h4>Marco New</h4>#}
-{#                                            <a href="#"><span>6 weeks ago</span><span>Reply</span></a>#}
-{#                                        </div>#}
-{#                                        <p>Enim, iste numquam inventore reiciendis libero quidem quos voluptate? Thank#}
-{#                                            you for visiting templatemo.</p>#}
-{#                                    </div>#}
-{#                                </div>#}
                             </div> <!-- /.blog-comments-content -->
                         </div> <!-- /.blog-post-comments -->
                     </div> <!-- /.col-md-12 -->
@@ -127,31 +84,32 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <p>
-                                                <label for="name-id">Your Name:</label>
-                                                <input type="text" id="name-id" name="name-id">
+                                                {{ form.name.label_tag }}
+                                                {{ form.name }}
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
-                                                <label for="email-id">Email Address:</label>
-                                                <input type="text" id="email-id" name="email-id">
+                                                {{ form.email.label_tag }}
+                                                {{ form.email }}
                                             </p>
                                         </div>
                                         <div class="col-md-4">
                                             <p>
-                                                <label for="site-id">Your Site:</label>
-                                                <input type="text" id="site-id" name="site-id">
+{#                                                <label for="site-id">Your Site:</label>#}
+{#                                                <input type="text" id="site-id" name="site-id">#}
                                             </p>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <p>
-                                                <label for="comment">Your comment:</label>
-                                                <textarea name="comment" id="comment" rows="5"></textarea>
+                                                {{ form.description.label_tag }}
+                                                {{ form.description }}
                                             </p>
                                         </div>
                                     </div>
+                                    <br>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <input class="mainBtn" type="submit" name="submit" value="Submit Comment"
