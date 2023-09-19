@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load render_partial %}
 
 {% block title %}blog list{% endblock %}
 
@@ -55,47 +56,7 @@
                 </div> <!-- /.row -->
             </div> <!-- /.col-md-8 -->
 
-            <div class="col-md-4">
-                <div class="sidebar">
-                    <div class="sidebar-widget">
-                        <h5 class="widget-title">Recent Posts</h5>
-                        {% for recent_post in recent_posts %}
-                            <div class="last-post clearfix">
-                                <div class="thumb pull-left">
-                                    <a href="{{ recent_post.slug }}"><img class="recent-post-image"
-                                                                          src="{{ recent_post.img.url }}"
-                                                                          alt="{{ recent_post.title }}"></a>
-                                </div>
-                                <div class="content">
-                                    <span>{{ recent_post.added_date }}</span>
-                                    <h4><a href="{{ recent_post.slug }}">{{ recent_post.title }}</a></h4>
-                                </div>
-                            </div> <!-- /.last-post -->
-                        {% endfor %}
-
-
-                    </div> <!-- /.sidebar-widget -->
-                    <div class="sidebar-widget">
-                        <h5 class="widget-title">Categories</h5>
-                        <div class="row categories">
-                            <div class="col-md-6">
-                                <ul>
-                                    {% for category in right_categories %}
-                                        <li><a href="{{ category.slug }}">{{ category.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul>
-                                    {% for category in left_categories %}
-                                        <li><a href="{{ category.slug }}">{{ category.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
-                            </div>
-                        </div> <!-- /.row -->
-                    </div> <!-- /.sidebar-widget -->
-                </div> <!-- /.sidebar -->
-            </div> <!-- /.col-md-4 -->
+            {% render_partial 'blog.views.sidebar' %}
 
         </div> <!-- /.row -->
     </div> <!-- /.container -->
