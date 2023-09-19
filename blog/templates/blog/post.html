@@ -1,0 +1,131 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <div class="first-widget parallax" id="blogId">
+        <div class="parallax-overlay">
+            <div class="container pageTitle">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h2 class="page-title">{{ object.title|title }}</h2>
+                    </div> <!-- /.col-md-6 -->
+                    <div class="col-md-6 col-sm-6 text-right">
+                        <span class="page-location">Home / {{ object.title }}</span>
+                    </div> <!-- /.col-md-6 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.parallax-overlay -->
+    </div> <!-- /.pageTitle -->
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 blog-posts">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-blog">
+                            <div class="blog-image">
+                                <img src="{{ object.img.url }}" alt="">
+                            </div> <!-- /.blog-image -->
+                            <div class="blog-content">
+                                <span class="meta-date"><a href="#">{{ object.added_date }}</a></span>
+                                <span class="meta-comments"><a
+                                        href="#blog-comments">{{ count_comments }} Comments</a></span>
+                                <h3>{{ object.title|title }}</h3>
+                                <p>{{ object.description }}</p>
+                                <div class="tag-items">
+                                    <span class="small-text">Tags:</span>
+                                    {% for tag in object.tags.all %}
+                                        <a href="" rel="tag">{{ tag.title }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div> <!-- /.blog-content -->
+                        </div> <!-- /.post-blog -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="blog-comments" class="blog-post-comments">
+                            <h3>{{ count_comments }} Comments</h3>
+                            <div class="blog-comments-content">
+                                {% for comment in comments %}
+                                    <div class="media">
+                                        <div class="pull-left">
+                                            <img class="media-object"
+                                                 src="{% static 'blog/images/includes/comment.jpg' %}"
+                                                 alt="comment">
+                                        </div>
+                                        <div class="media-body">
+                                            <div class="media-heading">
+                                                <h4>{{ comment.name }}</h4>
+                                                <a href=""><span>{{ comment.added_date|date }}</span></a>
+                                            </div>
+                                            <p>{{ comment.description }}</p>
+                                        </div>
+                                    </div>
+
+                                {% endfor %}
+
+
+                            </div> <!-- /.blog-comments-content -->
+                        </div> <!-- /.blog-post-comments -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="comment-form">
+                            <h3>Leave a comment</h3>
+                            <div class="widget-inner">
+                                <form method="post">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p>
+                                                {{ form.name.label_tag }}
+                                                {{ form.name }}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+                                                {{ form.email.label_tag }}
+                                                {{ form.email }}
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p>
+{#                                                <label for="site-id">Your Site:</label>#}
+{#                                                <input type="text" id="site-id" name="site-id">#}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p>
+                                                {{ form.description.label_tag }}
+                                                {{ form.description }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input class="mainBtn" type="submit" name="submit" value="Submit Comment"
+                                                   id="submit">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div> <!-- /.widget-inner -->
+                        </div> <!-- /.widget-main -->
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.col-md-8 -->
+
+            {% render_partial 'blog.views.sidebar' %}
+
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+{% endblock %}

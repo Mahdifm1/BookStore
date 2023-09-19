@@ -1,0 +1,59 @@
+{% load static %}
+{% load render_partial %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="templatemo">
+    <!--
+	Medigo Template
+	http://www.templatemo.com/preview/templatemo_460_medigo
+    -->
+
+    <!-- Google Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700itali" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/misc.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/red-scheme.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- JavaScripts -->
+    <script src="{% static 'blog/js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'blog/js/jquery-migrate-1.2.1.min.js' %}"></script>
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+</head>
+<body>
+
+{% render_partial 'core.views.header_component' %}
+{% block body %}{% endblock %}
+{% render_partial 'core.views.footer_component' %}
+
+<!-- Scripts -->
+<script src="{% static 'blog/js/min/plugins.min.js' %}"></script>
+<script src="{% static 'blog/js/min/medigo-custom.min.js' %}"></script>
+{% include 'core/js_include.html' %}
+</body>
+</html>

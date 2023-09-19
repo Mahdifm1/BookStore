@@ -1,0 +1,70 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load render_partial %}
+
+{% block title %}blog list{% endblock %}
+
+{% block body %}
+
+    <div class="first-widget parallax" id="blog">
+        <div class="parallax-overlay">
+            <div class="container pageTitle">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h2 class="page-title">Blog</h2>
+                    </div> <!-- /.col-md-6 -->
+                    <div class="col-md-6 col-sm-6 text-right">
+                        <span class="page-location">Home / Blog</span>
+                    </div> <!-- /.col-md-6 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </div> <!-- /.parallax-overlay -->
+    </div> <!-- /.pageTitle -->
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-8 blog-posts">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% for post in posts %}
+                            <div class="post-blog">
+                                <div class="blog-image">
+                                    <a href="{{ post.slug }}">
+                                        <img src="{{ post.img.url }}" alt="">
+                                    </a>
+                                </div> <!-- /.blog-image -->
+                                <div class="blog-content">
+                                    <span class="meta-date"><a href="#">{{ post.added_date }}</a></span>
+                                    {#                                    <span class="meta-comments"><a href="#">14 Comments</a></span>#}
+                                    <h3><a href="{{ post.slug }}">{{ post.title|title }}</a></h3>
+                                    <p class="light-text">{{ post.short_description }}</p>
+                                </div> <!-- /.blog-content -->
+                            </div> <!-- /.post-blog -->
+                        {% endfor %}
+
+                    </div> <!-- /.col-md-12 -->
+                    <div class="col-md-12">
+                        {#                        <ul class="pages">#}
+                        {#                            <li><a href="#" class="active">1</a></li>#}
+                        {#                            <li><a href="#">2</a></li>#}
+                        {#                            <li><a href="#">3</a></li>#}
+                        {#                            <li><a href="#">...</a></li>#}
+                        {#                            <li><a href="#">13</a></li>#}
+                        {#                        </ul>#}
+                    </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+            </div> <!-- /.col-md-8 -->
+
+            {% render_partial 'blog.views.sidebar' %}
+
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+{% endblock %}
+
+{% block scripts %}
+    <!-- Scripts -->
+    <script src="{% static 'blog/js/min/plugins.min.js' %}"></script>
+    <script src="{% static 'blog/js/min/medigo-custom.min.js' %}"></script>
+{% endblock %}
