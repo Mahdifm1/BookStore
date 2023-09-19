@@ -3,6 +3,17 @@ from django.views.generic import ListView, DetailView
 from .models import Blog, Category, Tag
 
 
+def sidebar(request):
+    categories = Category.objects.all()
+    context = {
+        "recent_posts": Blog.objects.all().order_by('added_date')[:3],
+        "left_categories": categories[:int(len(categories) / 2)],
+        "right_categories": categories[int(len(categories) / 2):]
+    }
+
+    return render(request, 'blog/sidebar.html', context)
+
+
 class BlogList(ListView):
     model = Blog
     template_name = 'blog/blog_list.html'
@@ -13,11 +24,6 @@ class BlogList(ListView):
         context = super().get_context_data(**kwargs)
         posts = Blog.objects.all().order_by('added_date')
         context["posts"] = posts
-        context["recent_posts"] = posts[:3]
-        categories = Category.objects.all()
-        context["left_categories"] = categories[:int(len(categories)/2)]
-        context["right_categories"] = categories[int(len(categories)/2):]
-        context["tags"] = Tag.objects.all()
         return context
 
 
