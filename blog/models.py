@@ -19,7 +19,7 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
-    blog = models.OneToOneField(Blog, on_delete=models.CASCADE)
-    user = models.OneToOneField(Profile, on_delete=models.CASCADE)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     added_date = models.DateField(auto_now_add=True)
     description = models.TextField(max_length=150)
+    name = models.CharField(max_length=30)
