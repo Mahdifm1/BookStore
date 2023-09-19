@@ -12,3 +12,6 @@ class BlogAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(models.Comment)
+class BlogAdmin(admin.ModelAdmin):
+    pass
