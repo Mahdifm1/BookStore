@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Blog, Category, Tag
+from .models import Blog, Category, Comment
 
 
 def sidebar(request):
@@ -33,5 +33,7 @@ class Post(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["count_comments"] = 3  # todo not complete
+        comments = Comment.objects.filter(blog__exact=self.object)
+        context["count_comments"] = len(comments)
+        context["comments"] = comments
         return context
