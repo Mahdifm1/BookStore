@@ -30,3 +30,8 @@ class BlogList(ListView):
 class Post(DetailView):
     model = Blog
     template_name = 'blog/post.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["count_comments"] = 3  # todo not complete
+        return context
