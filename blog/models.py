@@ -23,4 +23,4 @@ class Comment(models.Model):
     added_date = models.DateField(auto_now_add=True)
     description = models.TextField(max_length=150)
     name = models.CharField(max_length=30)
-    email = models.EmailField(default='a@a.com')
+    email = models.EmailField()
