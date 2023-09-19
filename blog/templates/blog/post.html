@@ -62,7 +62,7 @@
                                         <div class="media-body">
                                             <div class="media-heading">
                                                 <h4>{{ comment.name }}</h4>
-                                                <a href=""><span>{{ comment.added_date }}</span></a>
+                                                <a href=""><span>{{ comment.added_date|date }}</span></a>
                                             </div>
                                             <p>{{ comment.description }}</p>
                                         </div>
@@ -80,7 +80,8 @@
                         <div class="comment-form">
                             <h3>Leave a comment</h3>
                             <div class="widget-inner">
-                                <form action="#" method="post">
+                                <form method="post">
+                                    {% csrf_token %}
                                     <div class="row">
                                         <div class="col-md-4">
                                             <p>
