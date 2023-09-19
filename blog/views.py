@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic import ListView, DetailView
 from .models import Blog, Category, Comment
 from .foms import CommentForm
@@ -34,9 +35,21 @@ class Post(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        comments = Comment.objects.filter(blog__exact=self.object)
+        comments = Comment.objects.filter(blog__exact=self.object, is_accepted__exact=True).order_by('-added_date')
         context["count_comments"] = len(comments)
         context["comments"] = comments
         form = CommentForm(kwargs)
         context['form'] = form
         return context
+
+    def post(self, *args, **kwargs):
+        form = CommentForm(self.request.POST)
+        if form.is_valid():
+            blog = Blog.objects.get(slug__exact=kwargs.get('slug'))
+            comment = Comment(name=form.cleaned_data.get('name'),
+                              email=form.cleaned_data.get('email'),
+                              description=form.cleaned_data.get('description'),
+                              blog=blog)
+            comment.save()
+
+        return redirect(reverse("blog list") + self.kwargs.get('slug'))
