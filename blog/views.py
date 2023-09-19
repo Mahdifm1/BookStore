@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import Blog, Category, Tag
 
 
@@ -19,3 +19,8 @@ class BlogList(ListView):
         context["right_categories"] = categories[int(len(categories)/2):]
         context["tags"] = Tag.objects.all()
         return context
+
+
+class Post(DetailView):
+    model = Blog
+    template_name = 'blog/post.html'
